@@ -1,0 +1,17 @@
+describe('Tugas 5 - Day 2 Sprint 5', function(){
+    it('TC-Form', function(){
+        cy.visit('https://demoqa.com/automation-practice-form')
+        cy.get('#firstName').type('Ahmad').should('have.value','Ahmad')
+        cy.get('#lastName').type('Saiful').should('have.value','Saiful')
+        cy.get('#userEmail').type('ahmadsaifultest@gmail.com').should('have.value','ahmadsaifultest@gmail.com')
+        cy.get('#genterWrapper > .col-md-9 > :nth-child(1)').click()
+        cy.get('#userNumber').type('0812345678').should('have.value','0812345678')
+        // cy.get('.subjects-auto-complete__value-container').type('').should('have.value','')
+        cy.get('#hobbiesWrapper > .col-md-9 > :nth-child(3)').click()
+        cy.get('input[type="file"]').attachFile('mdpl.jpg')
+        cy.get('#currentAddress').type('Kp. Suka Jadi').should('have.value','Kp. Suka Jadi')
+        cy.get('select').select('Haryana')
+        cy.get('#stateCity-wrapper > :nth-child(3)').should('not.be.visible')
+        cy.get('#submit').click()
+    })
+})
